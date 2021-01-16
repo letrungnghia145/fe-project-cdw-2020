@@ -1,0 +1,186 @@
+/* Top links */
+.toplinks {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #000;
+    box-sizing: border-box;
+    padding: 5px 15px;
+
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.toplinks > a {
+    float: right;
+    margin: 0 0 0 45px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+}
+
+.toplinks > a:hover,
+.toplinks > a:active {
+    color: #00a1b4;
+    text-decoration: none;
+}
+/* Top links */
+
+/* Navbars */
+.navbar-default {
+    display: block;
+    position: absolute !important;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border: none;
+    box-shadow: 0px 0px 8px rgba(35, 35, 35, 0.1);
+    z-index: 1000;
+    border-color: unset !important;
+    background-image: unset !important;
+}
+
+.navbar {
+    border: unset !important;
+}
+
+.navbar-brand {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.navbar .nav > li > a {
+    font-size: 16px;
+    font-weight: 100;
+    padding: 15px 35px;
+    color: #fff;
+}
+
+.navbar .nav > li > a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+.navbar-buy {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: none;
+}
+
+/* Search */
+.navbar .search {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 380px;
+    height: 50px;
+    z-index: 100;
+
+    background-color: transparent;
+}
+
+.navbar .search:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+}
+
+.navbar .search > .input {
+    float: right;
+    position: relative;
+    display: block;
+    width: 370px;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.navbar .search > .input > button {
+    float: left;
+    background-color: transparent;
+    border: none;
+
+    width: 38px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    font-size: 24px;
+    line-height: 24px;
+    color: #fff;
+}
+
+.navbar .search > .input > input {
+    float: left;
+    display: block;
+    margin-top: 5px;
+    width: calc(100% - 53px);
+    height: 40px;
+
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 100;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+/* Action */
+.navbar .search,
+.navbar .search:after,
+.navbar .search > .input > input {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.navbar .search[data-style="hidden"] {
+    -webkit-transform: translateX(310px);
+    -moz-transform: translateX(310px);
+    -ms-transform: translateX(310px);
+    -o-transform: translateX(310px);
+    transform: translateX(310px);
+}
+
+.navbar .search[data-style="hidden"]:after {
+    opacity: 0;
+    -webkit-transform: translateX(100vw);
+    -moz-transform: translateX(100vw);
+    -ms-transform: translateX(100vw);
+    -o-transform: translateX(100vw);
+    transform: translateX(100vw);
+}
+
+.navbar .search[data-style="hidden"] > .input > input {
+    opacity: 0;
+}
+/* Action */
+/* Search */
+
+/* Button Cart */
+.navbar .cart {
+    position: relative;
+    top: 0px;
+    width: auto;
+    height: auto;
+    min-width: 115px;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    margin: 0;
+
+    border-radius: 0px;
+}
+/* Button Cart */
+/* Navbars */

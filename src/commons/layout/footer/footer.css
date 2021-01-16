@@ -1,0 +1,80 @@
+/* Footer */
+/* About */
+footer .about .item > i {
+    float: left;
+    display: block;
+    font-size: 34px;
+    line-height: 38px;
+    margin-right: 8px;
+}
+
+footer .about .item > h1 {
+    float: left;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 20px 0;
+}
+/* About */
+
+/* Subscribe */
+footer > .subscribe {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+}
+
+footer > .subscribe form {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+footer > .subscribe form .btn {
+    padding: 7px 16px;
+}
+/* Subscribe */
+
+/* Social */
+footer .social > a {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 5px;
+
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #000;
+}
+/* Social */
+
+/* Payments */
+footer .payments {
+    text-align: center;
+}
+
+footer .payment-icons {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+footer .payment-icons > img {
+    float: none;
+    display: inline-block;
+    width: 70px;
+    height: auto;
+    margin: 0px 10px;
+}
+/* Payments */
+/* Footer */
