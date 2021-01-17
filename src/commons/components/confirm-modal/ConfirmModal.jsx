@@ -3,16 +3,19 @@ import { LoginModal } from "../login-modal";
 import { ModalHeader } from "../modal-header";
 import { Formik, Form, Field } from "formik";
 import { accessToken } from "../../../config";
+import { useDispatch } from "react-redux";
+import { actionRegistryConfirmRequest } from "../../../redux/actions/user";
 
-export const ForgotPasswordModal = (props) => {
+export const ConfirmModal = (props) => {
+    const onConfirm = useDispatch();
 
     let handleSubmit = (values) => {
         let token = localStorage.getItem(accessToken);
-        let validationCode = parseInt(values.validationCode);
-        console.log(validationCode);
-        console.log(token);
-
-        // document.getElementById("btn-reset").click();
+        let validationCode = values.validationCode;
+        let data = { validationCode: validationCode, token: token };
+        onConfirm(actionRegistryConfirmRequest(data));
+        props.callback(<LoginModal callback={props.callback} />);
+        document.getElementById("btn-reset").click();
     };
 
     let renderForm = () => {
@@ -68,6 +71,7 @@ export const ForgotPasswordModal = (props) => {
                                                         Reset
                                                     </button>
                                                     <a
+                                                        id="btn-login"
                                                         href="#Sign-In"
                                                         onClick={(e) => {
                                                             e.preventDefault();

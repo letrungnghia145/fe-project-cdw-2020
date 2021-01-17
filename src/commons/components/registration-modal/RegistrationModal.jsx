@@ -1,14 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
 import { ModalHeader } from "../modal-header";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
-const RegistrationModal = (props) => {
+import { ConfirmModal } from "../confirm-modal";
+import { useDispatch } from "react-redux";
+import { actionRegisterRequest, actionRegistryConfirm } from "../../../redux/actions/user";
+export const RegistrationModal = (props) => {
+    const onRegister = useDispatch()
     let handleSubmit = (values) => {
-        console.log(values);
-        props.onRegister(values);
-        // document.getElementById("btn-reset").click();
+        onRegister(actionRegisterRequest(values))
+        document.getElementById("btn-confirm").click();
+        document.getElementById("btn-reset").click();
     };
 
     let renderForm = () => {
@@ -116,14 +118,33 @@ const RegistrationModal = (props) => {
                                                         Ok
                                                     </button>{" "}
                                                     <button
+                                                        style={{
+                                                            display: "none",
+                                                        }}
                                                         type="reset"
                                                         id="btn-reset"
-                                                        className="btn btn-primary btn-sm d-none"
+                                                        className="btn btn-primary btn-sm"
                                                     >
                                                         Reset
                                                     </button>
                                                     &nbsp;&nbsp;
                                                     <a href="#">Terms &gt;</a>
+                                                    <a
+                                                        id="btn-confirm"
+                                                        href="#forgin-password"
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            props.callback(
+                                                                <ConfirmModal
+                                                                    callback={
+                                                                        props.callback
+                                                                    }
+                                                                />
+                                                            );
+                                                        }}
+                                                    >
+                                                        Confirm &gt;
+                                                    </a>
                                                     <br />
                                                     <br />
                                                     <p>
@@ -151,17 +172,3 @@ const RegistrationModal = (props) => {
 
     return renderForm();
 };
-
-const mapStateToProps = (state) => {
-    return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onRegister: (account) => {
-            console.log(account);
-        },
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegistrationModal);

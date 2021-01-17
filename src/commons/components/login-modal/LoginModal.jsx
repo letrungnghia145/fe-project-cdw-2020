@@ -1,15 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
 import { ForgotPasswordModal } from "../forgot-password-modal";
 import { ModalHeader } from "../modal-header";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { actionLoginRequest } from "../../../redux/actions/user";
+import { useDispatch } from "react-redux";
 
-const LoginModal = (props) => {
+export const LoginModal = (props) => {
+    const onLogin = useDispatch();
+
     let handleSubmit = (values) => {
-        console.log(values);
-        props.onLogin(values);
-        // document.getElementById("btn-reset").click();
+        onLogin(actionLoginRequest(values));
+        document.getElementById("btn-reset").click();
+        props.callback();
     };
 
     let renderForm = () => {
@@ -53,6 +56,7 @@ const LoginModal = (props) => {
                                                         placeholder="E-mail"
                                                         className="form-control"
                                                     />
+                                                    <ErrorMessage name="email" />
                                                     <br />
                                                     <Field
                                                         onChange={
@@ -63,6 +67,7 @@ const LoginModal = (props) => {
                                                         placeholder="Password"
                                                         className="form-control"
                                                     />
+                                                    <ErrorMessage name="password" />
                                                     <br />
                                                     <button
                                                         type="submit"
@@ -71,6 +76,9 @@ const LoginModal = (props) => {
                                                         Ok
                                                     </button>
                                                     <button
+                                                        style={{
+                                                            display: "none",
+                                                        }}
                                                         type="reset"
                                                         id="btn-reset"
                                                         className="btn btn-primary btn-sm d-none"
@@ -129,17 +137,3 @@ const LoginModal = (props) => {
 
     return renderForm();
 };
-
-const mapStateToProps = (state) => {
-    return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogin: (account) => {
-            console.log(account);
-        },
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);

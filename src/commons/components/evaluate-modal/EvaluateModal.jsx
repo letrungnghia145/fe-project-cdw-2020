@@ -1,10 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { ModalHeader } from "../modal-header";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const EvaluateModal = (props) => {
+export const EvaluateModal = (props) => {
     let handleSubmit = (values) => {
         console.log(values);
         // document.getElementById("btn-reset").click();
@@ -91,6 +91,9 @@ const EvaluateModal = (props) => {
                                                             {"  "}Send
                                                         </button>
                                                         <button
+                                                            style={{
+                                                                display: "none",
+                                                            }}
                                                             type="reset"
                                                             id="btn-reset"
                                                             className="btn d-none"
@@ -130,13 +133,3 @@ const EvaluateModal = (props) => {
 
     return renderForm();
 };
-
-const mapStateToProps = (state) => {
-    return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EvaluateModal);
